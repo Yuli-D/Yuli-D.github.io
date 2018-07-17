@@ -1,0 +1,34 @@
+.faq
+{
+background-color: white;
+}
+
+p
+{
+  font-size: 22px;
+  padding: 10px;
+  padding-top: 0;
+  padding-bottom: 20px;
+}
+h3
+{
+  margin: 2%;
+  font-size: 30px;
+}
+i
+{
+  font-size: 40px;
+  margin-top: 10px;
+}
+h2
+{
+  font-size: 60px;
+  margin-top: 0;
+  padding-top: 20px;
+}
+b
+{
+  font-size: 30px;
+  text-align: center;
+  color: red;
+}

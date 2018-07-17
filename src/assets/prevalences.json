@@ -1,0 +1,40 @@
+{
+    "depression": [
+    {
+        "setting": "primary care",
+        "prevalence": 10
+    },
+    {
+        "setting": "general population",
+        "prevalence": 12
+    },
+    {
+        "setting": "perinatal care",
+        "prevalence": 14
+    },
+    {
+        "setting": "new fathers",
+        "prevalence": 11
+    },
+    {
+        "setting": "cardiovascular disease",
+        "prevalence": 13
+    },
+    {
+        "setting": "* post heart-attack",
+        "prevalence": 15
+    },
+    {
+        "setting": "cancer",
+        "prevalence": 12
+    },
+    {
+        "setting": "diabetes",
+        "prevalence": 20
+    },
+    {
+        "setting": "palliative care",
+        "prevalence": 10
+    }
+]
+}
