@@ -7,10 +7,8 @@ import { FooterComponent } from './footer/footer.component';
 import { BasicInfoComponent } from './basic-info/basic-info.component';
 import { InputParametersComponent } from './input-parameters/input-parameters.component';
 import { ScreenPositiveComponent } from './screen-positive/screen-positive.component';
-import { HaveDepressionComponent } from './have-depression/have-depression.component';
 import { FAQComponent } from './faq/faq.component';
 import { ScreenPositiveGraphicComponent } from './screen-positive-graphic/screen-positive-graphic.component';
-import { HaveDepressionGraphicComponent } from './have-depression-graphic/have-depression-graphic.component';
 import {MatSelectModule} from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
@@ -45,10 +43,8 @@ const appRoutes: Routes = [
     BasicInfoComponent,
     InputParametersComponent,
     ScreenPositiveComponent,
-    HaveDepressionComponent,
     FAQComponent,
     ScreenPositiveGraphicComponent,
-    HaveDepressionGraphicComponent,
     MoreInfoComponent,
     MainPageComponent,
     NumberOnlyDirective
