@@ -32,7 +32,8 @@ const appRoutes: Routes = [
     redirectTo: 'main-page',
     pathMatch: 'full'
   },
-  { path: 'more-info', component: MoreInfoComponent }
+  { path: 'more-info', component: MoreInfoComponent },
+  { path: 'dist/KT-Tool', redirectTo:'main-page' }
 ];
 
 @NgModule({
