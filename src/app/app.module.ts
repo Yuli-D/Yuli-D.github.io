@@ -33,7 +33,9 @@ const appRoutes: Routes = [
     pathMatch: 'full'
   },
   { path: 'more-info', component: MoreInfoComponent },
-  { path: 'dist/KT-Tool', redirectTo:'main-page' }
+  { path: 'dist/KT-Tool', redirectTo:'main-page'},
+  { path:'https://yuli-d.github.io/dist/KT-Tool/index.html/more-info', redirectTo: 'more-info'},
+  {path: 'https://yuli-d.github.io/dist/KT-Tool/index.html/main-page', redirectTo: 'main-page'}
 ];
 
 @NgModule({
