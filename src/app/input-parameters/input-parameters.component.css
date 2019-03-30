@@ -26,13 +26,13 @@ width: 20%;
   align-content: center;
   align-items: center;
   padding-top:1%;
-  background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(255,255,255,0.29) 64%, rgba(255,214,214,0.05) 90%, rgba(255,214,214,0) 95%); /* ff3.6+ */
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255,255,255,1)), color-stop(64%, rgba(255,255,255,0.29)), color-stop(90%, rgba(255,214,214,0.05)), color-stop(95%, rgba(255,214,214,0))); /* safari4+,chrome */
-  background:-webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(255,255,255,0.29) 64%, rgba(255,214,214,0.05) 90%, rgba(255,214,214,0) 95%); /* safari5.1+,chrome10+ */
-  background: -o-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(255,255,255,0.29) 64%, rgba(255,214,214,0.05) 90%, rgba(255,214,214,0) 95%); /* opera 11.10+ */
-  background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(255,255,255,0.29) 64%, rgba(255,214,214,0.05) 90%, rgba(255,214,214,0) 95%); /* ie10+ */
-  background:radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(255,255,255,0.29) 64%, rgba(255,214,214,0.05) 90%, rgba(255,214,214,0) 95%); /* w3c */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#FFD6D6',GradientType=1 ); /* ie6-9 */
+  /* background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(255,255,255,0.29) 64%, rgba(255,214,214,0.05) 90%, rgba(255,214,214,0) 95%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255,255,255,1)), color-stop(64%, rgba(255,255,255,0.29)), color-stop(90%, rgba(255,214,214,0.05)), color-stop(95%, rgba(255,214,214,0)));
+  background:-webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(255,255,255,0.29) 64%, rgba(255,214,214,0.05) 90%, rgba(255,214,214,0) 95%);
+  background: -o-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(255,255,255,0.29) 64%, rgba(255,214,214,0.05) 90%, rgba(255,214,214,0) 95%);
+  background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(255,255,255,0.29) 64%, rgba(255,214,214,0.05) 90%, rgba(255,214,214,0) 95%);
+  background:radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(255,255,255,0.29) 64%, rgba(255,214,214,0.05) 90%, rgba(255,214,214,0) 95%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#FFD6D6',GradientType=1 );*/
 }
 button
 {
@@ -64,20 +64,28 @@ th
 {
   font-size: 20px;
 }
+
+.content-wrapper {
+    white-space: normal;
+}
+
 .mytable
 {
-width: 30%;
+  box-sizing: border-box;
+min-width: 40%;
 display: inline-block;
 text-align: left;
 
 }
 .calculate
 {
-  display: inline-block;
-  width: 40%;
+  vertical-align: middle;
+  box-sizing: border-box;
+  /* display: inline-block; */
+  min-width: 40%;
 position: relative;
-bottom: 250px;
-left: 40px;
+/* bottom: 250px; */
+/* left: 40px; */
 max-width: 100%;
 }
 a
@@ -104,4 +112,36 @@ h2
 {
   padding:20px;
   padding-top:0;
+}
+.example
+{
+  text-align: left;
+  color: white;
+}
+.examples-panel {
+  width: 100%;
+  text-align: center;
+}
+mat-expansion-panel {
+  width: 92%;
+  background-color: #2E75B6;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+mat-expansion-panel ul {
+  font-size: 18px;
+  list-style-type: disc;
+}
+
+ mat-expansion-panel-header mat-panel-title, /deep/mat-expansion-panel-header .mat-expansion-indicator::after {
+  color: white !important;
+  font-size: 20px;
+  font-weight: bold;
+}
+mat-expansion-panel-header mat-panel-title
+{
+  margin-left: 20px;
 }

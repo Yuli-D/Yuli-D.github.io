@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms'
 export interface PeriodicElement {
   patient_setting: string;
   prevalence_percent: string;
@@ -32,7 +33,7 @@ export class InputParametersComponent
   screenpositive: number = 0;
   havedepression: number = 0;
   prevalenceSelected:number;
-  prevalenceSelected2:number;
+  prevalenceSelected2: FormControl;
   screenPositive:number=this.screenpositive;
   haveDepression:number=this.havedepression;
   ShowResult:number;
@@ -43,24 +44,39 @@ export class InputParametersComponent
   Falsepositive: number;
   falsepositivepercent:number=0;
   Falsepositivepercent:number;
+  falsenegative:number=0;
+  screenNegative:number=0;
+  truenegative:number=0;
+  truenegativepercent:number=0;
+  falsenegativepercent: number=0;
+
+  constructor() {
+      this.prevalenceSelected2 = new FormControl();
+  }
 
   Calc(){
+    const prevalenceSelected2 = this.prevalenceSelected2.value;
 
+    if (prevalenceSelected2) {
     let elems = document.querySelectorAll('.screengraphic:nth-child(n) .active-path');
     for(let i=0; i<200;i++)
     {
        elems[i].setAttribute('style', 'fill:gray');
-
     }
-    if( this.prevalenceSelected2 > 0)
+    if( prevalenceSelected2 > 0)
     {
-     this.prevalence= Math.round(0.88*this.prevalenceSelected2+(100-this.prevalenceSelected2-Math.round((100-this.prevalenceSelected2)*0.85)));
+     this.prevalence= Math.round(0.88*prevalenceSelected2+(100-prevalenceSelected2-Math.round((100-prevalenceSelected2)*0.85)));
      this.screenpositive=this.prevalence;
-     this.prevalence1=Math.round(100*(this.prevalenceSelected2*0.88/(this.prevalenceSelected2*0.88+(100-this.prevalenceSelected2)*0.15)));
+     this.prevalence1=Math.round(100*(prevalenceSelected2*0.88/(prevalenceSelected2*0.88+(100-prevalenceSelected2)*0.15)));
      this.havedepression=this.prevalence1;
      this.havedep= Math.round(this.havedepression*this.prevalence/100);
      this.falsepositive = this.screenpositive-this.havedep;
      this.falsepositivepercent = 100 - this.havedepression;
+     this.falsenegative = Math.round(prevalenceSelected2*0.12);
+     this.screenNegative=100 - this.screenpositive;
+     this.truenegative=this.screenNegative-this.falsenegative;
+     this.truenegativepercent=Math.round(this.truenegative*100/this.screenNegative);
+     this.falsenegativepercent= 100-this.truenegativepercent;
     }
     else
     {
@@ -68,57 +84,67 @@ export class InputParametersComponent
     this.screenpositive=this.prevalence;
     this.prevalence1=Math.round(100*(this.prevalenceSelected*0.88/(this.prevalenceSelected*0.88+(100-this.prevalenceSelected)*0.15)));
     this.havedepression=this.prevalence1;
+this.havedep= Math.round(this.havedepression*this.prevalence/100);
+this.falsepositive = this.screenpositive-this.havedep;
+this.falsepositivepercent = 100 - this.havedepression;
+    this.falsenegative = Math.round(this.prevalenceSelected*0.12);
+    this.screenNegative=100 - this.screenpositive;
+    this.truenegative=this.screenNegative-this.falsenegative;
+    this.truenegativepercent=Math.round(this.truenegative*100/this.screenNegative);
+    this.falsenegativepercent= 100-this.truenegativepercent;
+
+    }
     }
   }
 
-  depression = [
-  {
-      "setting": "Primary care",
-      "prevalence": 10
-  },
-  {
-      "setting": "General population",
-      "prevalence": 12
-  },
-  {
-      "setting": "Perinatal care",
-      "prevalence": 14
-  },
-  {
-      "setting": "New fathers",
-      "prevalence": 11
-  },
-  {
-      "setting": "Cardiovascular disease",
-      "prevalence": 13
-  },
-  {
-      "setting": "Post heart-attack",
-      "prevalence": 15
-  },
-  {
-      "setting": "Cancer-low prevalence",
-      "prevalence": 5
-  },
-  {
-      "setting": "Cancer-moderate prevalence",
-      "prevalence": 10
-  },
-  {
-      "setting": "Cancer-high prevalence",
-      "prevalence": 15
-  },
-  {
-      "setting": "Diabetes Type-1",
-      "prevalence": 14
-  },
-  {
-      "setting": "Diabetes Type-2",
-      "prevalence": 11
-  },
-  {
-      "setting": "Palliative care",
-      "prevalence": 10
-  }
-]
+//   depression = [
+//   {
+//       "setting": "Primary care",
+//       "prevalence": 10
+//   },
+//   {
+//       "setting": "General population",
+//       "prevalence": 12
+//   },
+//   {
+//       "setting": "Perinatal care",
+//       "prevalence": 14
+//   },
+//   {
+//       "setting": "New fathers",
+//       "prevalence": 11
+//   },
+//   {
+//       "setting": "Cardiovascular disease",
+//       "prevalence": 13
+//   },
+//   {
+//       "setting": "Post heart-attack",
+//       "prevalence": 15
+//   },
+//   {
+//       "setting": "Cancer-low prevalence",
+//       "prevalence": 5
+//   },
+//   {
+//       "setting": "Cancer-moderate prevalence",
+//       "prevalence": 10
+//   },
+//   {
+//       "setting": "Cancer-high prevalence",
+//       "prevalence": 15
+//   },
+//   {
+//       "setting": "Diabetes Type-1",
+//       "prevalence": 14
+//   },
+//   {
+//       "setting": "Diabetes Type-2",
+//       "prevalence": 11
+//   },
+//   {
+//       "setting": "Palliative care",
+//       "prevalence": 10
+//   }
+// ]
 }

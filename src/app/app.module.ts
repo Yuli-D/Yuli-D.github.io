@@ -22,6 +22,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainPageComponent } from './main-page/main-page.component';
 import {MatTableModule} from '@angular/material/table';
 import { NumberOnlyDirective } from './number.directive';
+import { ReferencesComponent } from './references/references.component';
+import { ScreenNegativeComponent } from './screen-negative/screen-negative.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 const appRoutes: Routes = [
   {
@@ -48,7 +51,9 @@ const appRoutes: Routes = [
     ScreenPositiveGraphicComponent,
     MoreInfoComponent,
     MainPageComponent,
-    NumberOnlyDirective
+    NumberOnlyDirective,
+    ReferencesComponent,
+    ScreenNegativeComponent
   ],
   imports: [
     BrowserModule,
@@ -59,9 +64,10 @@ const appRoutes: Routes = [
     MatButtonModule,
     HttpClientModule,
     MatTableModule,
+    MatExpansionModule,
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      { enableTracing: true, anchorScrolling: 'enabled' } // <-- debugging purposes only
     )
   ],
   exports: [BrowserModule, BrowserAnimationsModule],

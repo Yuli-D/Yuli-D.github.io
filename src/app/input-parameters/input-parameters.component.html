@@ -1,34 +1,65 @@
 <div class="input_parameters">
-<h2>
-Please type in the most likely prevalence of depression in your practice. Some examples are shown in the table below.
-</h2>
+  <div class="examples-panel">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Examples:
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="example">
+
+      <ul>
+        <li>For cardiovascular care settings:
+    <ul>
+      <li>Start with 10 to 20 % (from specialty medicine / chronic disease conditions)</li>
+      <li>Decrease by 50% (assume 50% already recognized)</li>
+      <li>Enter a value between 5% and 10% (depending on whether prevalence is higher or lower in your practice)</li>
+    </ul>
+        </li>
 <br>
-<div class="mytable">
+        <li>For primary care:
+    <ul>
+      <li>Start with 5 to 10 % primary care</li>
+      <li>Decrease by 50% (assume 50% already recognized)</li>
+      <li>Enter a value between 3 and 5% (depending on whether prevalence is higher or lower in your practice)</li>
+
+    </ul>
+        </li>
+      </ul>
+    </div>
+  </mat-expansion-panel>
+  </div>
+<div class="content-wrapper">
+
+
+
+
+<!-- <div class="mytable">
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 <caption>Изменение добычи ресурсов по годам</caption>
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
 
   <!-- Position Column -->
-  <ng-container matColumnDef="patient_setting">
+  <!-- <ng-container matColumnDef="patient_setting">
     <th mat-header-cell *matHeaderCellDef> Patient group </th>
     <td mat-cell *matCellDef="let element"> {{element.patient_setting}} </td>
-  </ng-container>
+  </ng-container> -->
 
   <!-- Name Column -->
-  <ng-container matColumnDef="prevalence_percent">
+  <!-- <ng-container matColumnDef="prevalence_percent">
     <th mat-header-cell *matHeaderCellDef class="mycell"> Prevalence </th>
     <td mat-cell *matCellDef="let element" class="mycell"> {{element.prevalence_percent}} </td>
-  </ng-container>
+  </ng-container> -->
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 <nav>
-  <a target="_blank" routerLink="/more-info" routerLinkActive="active">
-More info</a>
-</nav>
-</div>
+<!--  <a target="_blank" routerLink="/more-info" routerLinkActive="active">
+More info</a>-->
+<!-- </nav>
+</div> -->
 <!-- <mat-form-field> -->
   <!-- <mat-select placeholder="Patient group" [(ngModel)]="prevalenceSelected">
     <mat-option *ngFor="let prevalence of depression" [value]="prevalence.prevalence">
@@ -47,17 +78,15 @@ More info</a>
   <p class="prevalenceRestrictions">Enter an integer between 1 and 100</p>
   <br>
   <mat-form-field class="example-full-width">
-    <input maxlength="3" myNumberOnly name="min" type="number" id="myNumber" class="users_prevalence" matInput placeholder="Prevalence" [(ngModel)]="prevalenceSelected2">
+    <input maxlength="3" myNumberOnly name="min" id="myNumber" class="users_prevalence" matInput placeholder="Prevalence" [formControl]="prevalenceSelected2" min="1" max="100" (keyup.enter)="Calc()" autocomplete="off">
   </mat-form-field>
   <div class="button-row">
     <br>
-  <button mat-raised-button [(ngModel)]="ShowResult" (click)="Calc()">Calculate</button>
+  <button mat-raised-button (click)="Calc()">Calculate</button>
+</div>
 </div>
 </div>
 <app-screen-positive Falsepositivepercent="{{falsepositivepercent}}" Falsepositive="{{falsepositive}}" Howmany="{{havedep}}" screenPositive="{{screenpositive}}" haveDepression="{{havedepression}}"></app-screen-positive>
-<app-screen-positive-graphic ShowResult="{{prevalence}}" Howmany="{{havedep}}"></app-screen-positive-graphic>
-<p class="manuscript">
-  We analyzed data collected in XX studies from more than 17,000
-  individuals from around the world to estimate how the PHQ-9 might perform in clinical practice. [Link to manuscript]
-</p>
+<app-screen-positive-graphic ShowResult="{{prevalence}}" Howmany="{{havedep}}" [falsenegative]="falsenegative"></app-screen-positive-graphic>
+<app-screen-negative truenegativepercent="{{truenegativepercent}}" falsenegative="{{falsenegative}}" truenegative="{{truenegative}}" screenNegative="{{screenNegative}}" falsenegativepercent="{{falsenegativepercent}}"></app-screen-negative>
 </div>

@@ -1,0 +1,14 @@
+<div class="references-wrapper">
+<h3>References</h3>
+<br>
+<ol>
+  <li *ngFor="let reference of references; let i = index">
+    <ng-container *ngIf="reference.link.length !== 0; else text">
+      <a [href]="reference.link" target="_blank" id="references-{{i + 1}}"> {{ reference.label }}</a>
+    </ng-container>
+    <ng-template #text>
+      <span id="references-{{i + 1}}">{{ reference.label }}</span>
+    </ng-template>
+  </li>
+</ol>
+</div>

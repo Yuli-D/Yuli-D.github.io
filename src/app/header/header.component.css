@@ -1,14 +1,28 @@
 .university_logo
 {
-
-display: inline;
-float: left;
- position: relative;
+  display: inline-block;
+  float: right;
+  position: relative;
   width:120px;
-   height:30px;
-   margin-top: 8px;
-   margin-left: 20px;
+  height:30px;
+  margin-top: 30px;
+  margin-right: 1%;
+  vertical-align: bottom;
+}
 
+.depressd_logo
+{
+  width:120px;
+  height:100px;
+}
+.jgh_logo
+{
+  display: inline-block;
+  width:90px;
+  height:70px;
+  float: left;
+  margin-left:1%;
+margin-top: 10px;
 }
 h1
 {
@@ -16,14 +30,21 @@ h1
   text-align: center;
 
 }
-.man
-{
-  width:120px;
-  height:70px;
-  position: relative;
-  display: none;
-}
+
 .header
 {
   display: block;
+  align-items: baseline;
+  background-color: white;
+}
+
+.depressd-wrapper {
+  display: inline-block;
+  position: relative;
+}
+
+@media screen and (max-width: 600px) {
+  .depressd-wrapper h1{
+    font-size: 28px;
+  }
 }
